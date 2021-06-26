@@ -1,49 +1,16 @@
 #!/bin/bash -x
+#is leap year or not
 
-num1=$((RANDOM%1000));
-num2=$((RANDOM%1000));
-num3=$((RANDOM%1000));
-num4=$((RANDOM%1000));
-num5=$((RANDOM%1000));
+read -p  "Enter the year :-" y
 
-if [ $num1 -gt $num2 ] && [ $num1 -gt $num3 ] && [ $num1 -gt $num4 ] && [ $num1 -gt $num5 ]
-then 
-	echo $num1 "is max"
+con1=`expr $y % 4`
+con2=`expr $y % 100`
+con3=`expr $y % 400`
 
-elif [ $num2 -gt $num3 ] && [ $num2 -gt $num4 ] && [ $num2 -gt $num5 ]
+if [ $con1 -eq 0 -a $con2 -ne 0 -o $con3 -eq 0 ]
 then
-	echo $num2 "is max"
-
-elif [ $num3 -gt $num4 ] && [ $num3 -gt $num5 ]
-then
-        echo $num3 "is max"
-
-elif [ $num4 -gt $num5 ]
-then
-        echo $num4 "is max"
-
+	echo $y " is a leap year "
 else
-	echo $num5 "is max"
+	echo $y " is not a leap year"
 fi
-#to find minimum
 
-
-if [ $num1 -lt $num2 ] && [ $num1 -lt $num3 ] && [ $num1 -lt $num4 ] && [ $num1 -lt $num5 ]
-then
-        echo $num1 "is min"
-
-elif [ $num2 -lt $num3 ] && [ $num2 -lt $num4 ] && [ $num2 -lt $num5 ]
-then
-        echo $num2 "is min"
-
-elif [ $num3 -lt $num4 ] && [ $num3 -lt $num5 ]
-then
-        echo $num3 "is min"
-
-elif [ $num4 -lt $num5 ]
-then
-        echo $num4 "is min"
-
-else
-        echo $num5 "is min"
-fi
